@@ -13,3 +13,10 @@
 @import 'cmps/main-content.css';
 @import 'cmps/personal-details.css';
 @import 'cmps/main-footer.css';
+@import 'cmps/main-screen.css';
+
+/* Editor screen */
+@import 'cmps/editor-screen.css';
+@import 'cmps/main-canvas.css';
+@import 'cmps/editor-tools.css';
+

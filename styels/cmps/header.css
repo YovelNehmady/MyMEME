@@ -1,6 +1,6 @@
 .main-header {
     background-color: var(--clr1);
-    color: black;
+    color: var(--clr3);
 }
 
 .main-header .logo {
@@ -23,11 +23,11 @@
 }
 
 .main-nav li:last-child {
-    box-shadow: -1px 0 0 0 var(--clr2), inset -1px 0 0 0 var(--clr2)
+    box-shadow: -1px 0 0 0 var(--clr3), inset -1px 0 0 0 var(--clr3)
 }
 
 .main-nav li {
-    box-shadow: -1px 0 0 0 var(--clr2);
+    box-shadow: -1px 0 0 0 var(--clr3);
 }
 
 

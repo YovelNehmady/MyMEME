@@ -1,0 +1,32 @@
+.editor-tools {
+    background-color: var(--clr3);
+    grid-area: editor-tools;
+    align-self: center;
+    height: 100%;
+    text-align: center;
+}
+
+.editor-tools input{
+    margin-inline: auto;
+    margin-block-start: 10px;
+    height: 45px;
+    width: 85%;
+    text-align: center;
+}
+
+.editor-btns{
+    text-align: center;
+}
+
+.editor-tools img{
+    width: 50px;
+    padding: 10px;
+    background-color: var(--clr1);
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.editor-tools img:hover{
+    background-color: var(--clr5);
+}

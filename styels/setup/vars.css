@@ -3,11 +3,14 @@
     --clr1: #8eb8c1;
 
     /* background color  */
-    --clr2: #161c2d ;
+    --clr2: #161c2d;
 
     /* Secend background color */
     --clr3: #2c2f34;
 
-    /* hover and logo color */
+    /* Main nav hover and logo color */
     --clr4: #fff;
+
+    /* Editor tools btn hover  */
+    --clr5: #cfe0e3;
 }
