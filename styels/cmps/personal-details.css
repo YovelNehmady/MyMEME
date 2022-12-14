@@ -1,0 +1,51 @@
+.personal-details-container {
+    background-color: var(--clr3);
+}
+
+.personal-details {
+    padding-block: 100px;
+    grid-template-areas:
+        "personal-img   name"
+        "personal-img   about"
+        "personal-img   social-links";
+    column-gap: 50px;
+}
+
+.personal-img {
+    border-radius: 50%;
+    height: 250px;
+    width: auto;
+    grid-area: personal-img;
+    justify-self: end;
+}
+
+.name {
+    grid-area: name;
+    font-size: 1.3rem;
+}
+
+.about {
+    grid-area: about;
+    max-width: 350px;
+}
+
+.social-links {
+    grid-area: social-links;
+}
+
+.social-links li {
+    padding: 15px;
+}
+
+.linkedin:hover svg {
+    fill: #0c61bf;
+}
+
+.facebook:hover svg {
+    fill: #516fad;
+}
+
+.github:hover svg {
+    fill: #fff;
+}
+

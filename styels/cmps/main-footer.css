@@ -1,0 +1,19 @@
+.main-footer{
+    text-align: center;
+}
+
+.main-footer .logo{
+    font-family: SourceCodePro;
+    font-size: 2rem;
+    padding: 25px;
+}
+
+.main-footer .logo span {
+    color: var(--clr1);
+    position: relative;
+    top: -6px;
+}
+
+small{
+    padding-bottom: 10px;
+}

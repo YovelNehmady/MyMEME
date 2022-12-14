@@ -1,0 +1,12 @@
+.main-content{
+    background-color: var(--clr3);
+    grid-template-columns: repeat(auto-fit, 350px) ;
+    gap: 15px;
+    justify-content: center;
+    
+}
+
+.main-content img{
+    height: 350px;
+    width: auto;
+}

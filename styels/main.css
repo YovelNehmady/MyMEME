@@ -5,7 +5,13 @@
 /* Basic */
 @import './basic/base.css';
 @import './basic/helpers.css';
+@import './basic/layout.css';
+
 
 
 /* Cmps */
 @import './cmps/header.css';
+@import './cmps/main-sort.css';
+@import './cmps/main-content.css';
+@import './cmps/personal-details.css';
+@import './cmps/main-footer.css';

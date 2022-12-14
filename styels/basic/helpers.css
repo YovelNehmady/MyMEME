@@ -1,3 +1,10 @@
+a{
+    text-decoration: none;
+    color: inherit;
+}
+.grid{
+    display: grid;
+}
 .clean-list {
     margin: 0;
     padding: 0;
@@ -9,6 +16,10 @@
 
 .flex.align-center {
     align-items: center;
+}
+
+.flex.justify-center {
+    justify-items: center;
 }
 
 .flex.space-between {
