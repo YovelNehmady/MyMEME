@@ -13,23 +13,23 @@
 
 <body>
 
-   
 
-        <header class="main-header full main-layout">
-            <div class="main-container flex space-between">
 
-                <div class="logo flex">M<span>y</span>MEME</div>
-                <nav class="main-nav">
-                    <ul class="clean-list flex align-center">
-                        <li><a href="#main-content" class="gallery flex">Gallery</a></li>
-                        <li><a href="#personal-details" class="about flex">About</a></li>
-                        <li><a href="#" class="about flex">Saved</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
+    <header class="main-header full main-layout">
+        <div class="main-container flex space-between">
 
-        <div class="main-screen main-layout">
+            <div class="logo flex">M<span>y</span>MEME</div>
+            <nav class="main-nav">
+                <ul class="clean-list flex align-center">
+                    <li><a href="#main-content" class="gallery flex">Gallery</a></li>
+                    <li><a href="#personal-details" class="about flex">About</a></li>
+                    <li><a href="#" class="about flex">Saved</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="main-screen main-layout">
 
         <section class="main-sort flex space-between align-center">
             <input type="text" class="text-input" placeholder="Enter search keyword">
@@ -95,7 +95,7 @@
                 </ul>
             </section>
         </div>
-        
+
     </div>
 
     <div class="editor-screen grid ">
@@ -107,30 +107,41 @@
                 <input type="text" placeholder="Enter your MEME &#x270D;">
 
                 <div class="editor-btns">
-                    <img src="/imgs/btn/add.png" alt="">
-                    <img src="/imgs/btn/align-to-left.png" alt="">
-                    <img src="/imgs/btn/align-to-right.png" alt="">
-                    <img src="/imgs/btn/center-text-alignment.png" alt="">
-                    <img src="/imgs/btn/decrease font - icon.png" alt="">
-                    <img src="/imgs/btn/increase font - icon.png" alt="">
-                    <img src="/imgs/btn/paint-board-and-brush.png" alt="">
-                    <img src="/imgs/btn/text stroke.png" alt="">
-                    <img src="/imgs/btn/trash.png" alt="">
-                    <img src="/imgs/btn/up-and-down-opposite-double-arrows-side-by-side.png" alt="">
+                    <img src="imgs/btn/add.png" alt="">
+                    <img src="imgs/btn/align-to-left.png" alt="">
+                    <img src="imgs/btn/align-to-right.png" alt="">
+                    <img src="imgs/btn/center-text-alignment.png" alt="">
+                    <img src="imgs/btn/decrease font - icon.png" alt="">
+                    <img src="imgs/btn/increase font - icon.png" alt="">
+                    <img src="imgs/btn/paint-board-and-brush.png" alt="">
+                    <img src="imgs/btn/text stroke.png" alt="">
+                    <img src="imgs/btn/trash.png" alt="">
+                    <img src="imgs/btn/up-and-down-opposite-double-arrows-side-by-side.png" alt="">
                 </div>
-                
+
+                <select name="font" class="font-select">
+                    <option value="impact">Impact</option>
+                    <option value="ariel">Ariel</option>
+                    <option value="times">Times</option>
+                </select>
+
+                <div class="btn-container flex">
+                    <button>Download</button>
+                    <button>Share</button>
+                </div>
+
 
             </div>
         </section>
     </div>
 
-        <footer class="main-footer">
-            <div class="logo">M<span>y</span>MEME</div>
-            <small>all rights reserved 2022</small>
-        </footer>
+    <footer class="main-footer">
+        <div class="logo">M<span>y</span>MEME</div>
+        <small>all rights reserved 2022</small>
+    </footer>
 
 
-  
+
 
 </body>
 

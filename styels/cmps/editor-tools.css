@@ -3,10 +3,10 @@
     grid-area: editor-tools;
     align-self: center;
     height: 100%;
-    text-align: center;
+    max-width: 400px;
 }
 
-.editor-tools input{
+.editor-tools input {
     margin-inline: auto;
     margin-block-start: 10px;
     height: 45px;
@@ -14,11 +14,11 @@
     text-align: center;
 }
 
-.editor-btns{
+.editor-btns {
     text-align: center;
 }
 
-.editor-tools img{
+.editor-tools img {
     width: 50px;
     padding: 10px;
     background-color: var(--clr1);
@@ -27,6 +27,30 @@
     margin: 10px;
 }
 
-.editor-tools img:hover{
+.editor-tools img:hover {
     background-color: var(--clr5);
 }
+
+.font-select {
+    margin-inline: auto;
+    height: 45px;
+    width: 40%;
+}
+
+.editor-tools .btn-container {
+justify-content: space-around;
+}
+
+.editor-tools button {
+    background-color: var(--clr1);
+    font-family: montserrat-bold;
+    width: 100px;
+    border-radius: 10px;
+    cursor: pointer; 
+}
+
+.editor-tools button:hover {
+    background-color: var(--clr5);
+}
+
+
