@@ -33,6 +33,10 @@
     grid-area: social-links;
 }
 
+svg {
+    fill: var(--clr2);
+}
+
 .social-links li {
     padding: 15px;
 }
@@ -48,4 +52,3 @@
 .github:hover svg {
     fill: #fff;
 }
-

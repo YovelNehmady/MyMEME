@@ -1,17 +1,17 @@
 .main-header {
     background-color: var(--clr1);
-    color: var(--clr3);
+    color: var(--clr2);
 }
 
 .main-header .logo {
-    color: black;
+    color: var(--clr2);
     font-family: SourceCodePro;
     font-size: 2rem;
     align-self: center
 }
 
 .main-header .logo span {
-    color: var(--clr4);
+    color: var(--clr3);
     position: relative;
     top: -6px;
 }
@@ -23,11 +23,11 @@
 }
 
 .main-nav li:last-child {
-    box-shadow: -1px 0 0 0 var(--clr3), inset -1px 0 0 0 var(--clr3)
+    box-shadow: -1px 0 0 0 var(--clr2), inset -1px 0 0 0 var(--clr2)
 }
 
 .main-nav li {
-    box-shadow: -1px 0 0 0 var(--clr3);
+    box-shadow: -1px 0 0 0 var(--clr2);
 }
 
 

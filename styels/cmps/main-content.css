@@ -7,6 +7,14 @@
 }
 
 .main-content img{
+    cursor: pointer;
     height: 350px;
     width: auto;
 }
+
+.main-content img:hover{
+ opacity: .5;
+}
+
+
+
