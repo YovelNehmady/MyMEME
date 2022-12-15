@@ -41,6 +41,10 @@ svg {
     padding: 15px;
 }
 
+.github svg {
+    height: 56px;
+}
+
 .linkedin:hover svg {
     fill: #0c61bf;
 }

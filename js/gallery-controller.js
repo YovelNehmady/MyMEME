@@ -8,14 +8,15 @@ function renderImgs() {
     const imges = getImgs()
     let strHTML = ``
     strHTML += imges.map(img => `
-     <img onclick="onOpenEditorScreen(${img.id},this)" src="${img.url}" alt="">`
+     <img onclick="onImgSelect(${img.id},this)" src="${img.url}" alt="">`
     ).join('')
     document.querySelector('.main-content').innerHTML = strHTML
 }
 
-function onOpenEditorScreen(id) {
-    const img = getImgById(id)
-    renderCanvs(img)
+function onImgSelect(id) {
+    setImg(id)
+    renderMeme()
+
     document.querySelector('.main-screen').classList.add('close')
     document.querySelector('.editor-screen').classList.add('grid')
     document.querySelector('.editor-screen').classList.remove('close')
