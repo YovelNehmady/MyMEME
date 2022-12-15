@@ -80,19 +80,24 @@
             <canvas class="main-canvas" height="400px" width="400px"></canvas>
             <div class="editor-tools grid">
 
-                <input onkeyup="setLineTxt(this.value)" type="text" placeholder="Enter your MEME &#x270D;">
+                <input class="meme-input" onkeyup="setLineTxt(this.value)" type="text" placeholder="Enter your MEME &#x270D;"/>
 
                 <div class="editor-btns">
-                    <img src="imgs/btn/add.png" alt="">
-                    <img src="imgs/btn/align-to-left.png" alt="">
-                    <img src="imgs/btn/align-to-right.png" alt="">
-                    <img src="imgs/btn/center-text-alignment.png" alt="">
-                    <img src="imgs/btn/decrease font - icon.png" alt="">
-                    <img src="imgs/btn/increase font - icon.png" alt="">
-                    <img src="imgs/btn/paint-board-and-brush.png" alt="">
-                    <img src="imgs/btn/text stroke.png" alt="">
-                    <img src="imgs/btn/trash.png" alt="">
-                    <img src="imgs/btn/up-and-down-opposite-double-arrows-side-by-side.png" alt="">
+                    <!-- <img src="imgs/btn/add.png" alt=""> -->
+                    <!-- <img src="imgs/btn/align-to-left.png" alt=""> -->
+                    <!-- <img src="imgs/btn/align-to-right.png" alt=""> -->
+                    <!-- <img src="imgs/btn/center-text-alignment.png" alt=""> -->
+
+                    <img onclick="onChangeFontSize(-1)" src="imgs/btn/decrease font - icon.png" alt="">
+                    <img onclick="onChangeFontSize(+1)" src="imgs/btn/increase font - icon.png" alt="">
+                    <img onclick="onChangeLineFocus()" src="imgs/btn/up-and-down-opposite-double-arrows-side-by-side.png" alt="">
+
+                    <input type="color" class="color-picker" style="width: 45px;" value="#ffffff" oninput="onSetColor(this.value)">
+                    <!-- <button><input type="color" class="color-picker" colorpallet="none" value="#ffffff" oninput="onSetColor(this.value)"><img src="imgs/btn/paint-board-and-brush.png" alt=""></button> -->
+                    <!-- <img  src="imgs/btn/paint-board-and-brush.png" alt=""> -->
+                    
+                    <!-- <img src="imgs/btn/text stroke.png" alt=""> -->
+                    <!-- <img src="imgs/btn/trash.png" alt=""> -->
                 </div>
 
                 <select name="font" class="font-select">
