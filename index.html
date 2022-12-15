@@ -83,13 +83,15 @@
                 <input class="meme-input" onkeyup="setLineTxt(this.value)" type="text" placeholder="Enter your MEME &#x270D;"/>
 
                 <div class="editor-btns">
-                    <!-- <img src="imgs/btn/add.png" alt=""> -->
-                    <!-- <img src="imgs/btn/align-to-left.png" alt=""> -->
-                    <!-- <img src="imgs/btn/align-to-right.png" alt=""> -->
-                    <!-- <img src="imgs/btn/center-text-alignment.png" alt=""> -->
+                    <img onclick="onAddLine()" src="imgs/btn/add.png" alt="">
+
+                    <img onclick="onSetAlign('left')" src="imgs/btn/align-to-left.png" alt="">
+                    <img onclick="onSetAlign('right')" src="imgs/btn/align-to-right.png" alt="">
+                    <img onclick="onSetAlign('center')" src="imgs/btn/center-text-alignment.png" alt="">
 
                     <img onclick="onChangeFontSize(-1)" src="imgs/btn/decrease font - icon.png" alt="">
                     <img onclick="onChangeFontSize(+1)" src="imgs/btn/increase font - icon.png" alt="">
+
                     <img onclick="onChangeLineFocus()" src="imgs/btn/up-and-down-opposite-double-arrows-side-by-side.png" alt="">
 
                     <input type="color" class="color-picker" style="width: 45px;" value="#ffffff" oninput="onSetColor(this.value)">
@@ -97,13 +99,16 @@
                     <!-- <img  src="imgs/btn/paint-board-and-brush.png" alt=""> -->
                     
                     <!-- <img src="imgs/btn/text stroke.png" alt=""> -->
-                    <!-- <img src="imgs/btn/trash.png" alt=""> -->
+
+
+                    <img onclick="onDeleteLine()" src="imgs/btn/trash.png" alt="">
+
                 </div>
 
-                <select name="font" class="font-select">
+                <select  value="impact" onchange="onSetFont(this.value)" name="font" class="font-select">
                     <option value="impact">Impact</option>
-                    <option value="ariel">Ariel</option>
-                    <option value="times">Times</option>
+                    <option value="calibri">Calibri</option>
+                    <option value="montserrat-regular">Montserrat</option>
                 </select>
 
                 <div class="btn-container flex">

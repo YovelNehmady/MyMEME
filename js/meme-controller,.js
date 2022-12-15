@@ -3,51 +3,66 @@ const gElCanvas = document.querySelector('.main-canvas')
 const gCtx = gElCanvas.getContext('2d')
 const elContainer = document.querySelector('.canvas-container')
 
-function renderMeme(lineIdx = 0) {
+function renderMeme() {
     const meme = getMeme()
     const img = getImgById(meme.selectedImgId)
     const elImg = new Image()
     elImg.src = img.url
     elImg.onload = () => {
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
-        drawText(meme, lineIdx)
-        drawText1(meme)
+        let lineIdx = 0
+        meme.lines.forEach(line => {
+            drawText(line, lineIdx)
+            lineIdx++
+        })
     }
 }
 
 
-function drawText(meme, lineIdx) {
+function drawText(line, lineCounter) {
     gCtx.lineWidth = 2
     gCtx.strokeStyle = 'black'
-    gCtx.fillStyle = meme.lines[lineIdx].color
-    gCtx.font = `${meme.lines[lineIdx].size}px impact`
-    gCtx.textAlign = 'center'
-    gCtx.textBaseline = 'top'
+    gCtx.fillStyle = line.color
+    gCtx.font = `${line.size}px ${line.font}`
+    gCtx.textAlign = line.align
+    gCtx.textBaseline = 'center'
 
-    gCtx.fillText(meme.lines[lineIdx].txt, gElCanvas.width / 2, 0)
-    gCtx.strokeText(meme.lines[lineIdx].txt, gElCanvas.width / 2, 0)
+    let y
+    let x
+    if (!line.pos) {
+        switch (lineCounter) {
+            case 0:
+                y = 65
+                break
+
+            case 1:
+                y = gElCanvas.height - 5
+                break
+
+            default:
+                y = gElCanvas.height / 2
+                break
+        }
+        switch (line.align) {
+            case 'left':
+                x = 5
+                break
+
+            case 'right':
+                x = gElCanvas.width
+                break
+
+            case 'center':
+                x = gElCanvas.width / 2
+                break
+        }
+    } else {
+        x = line.pos.x
+        y = line.pos.y
+    }
+
+    line.pos = { x: x, y: y }
+    gCtx.fillText(line.txt, x, y)
+    gCtx.strokeText(line.txt, x, y)
 }
 
-// function drawText(meme) {
-//     gCtx.lineWidth = 2
-//     gCtx.strokeStyle = 'black'
-//     gCtx.fillStyle = meme.lines[0].color
-//     gCtx.font = `${meme.lines[0].size}px impact`
-//     gCtx.textAlign = 'center'
-//     gCtx.textBaseline = 'top'
-
-//     gCtx.fillText(meme.lines[0].txt, gElCanvas.width / 2, 0)
-//     gCtx.strokeText(meme.lines[0].txt, gElCanvas.width / 2, 0)
-// }
-
-function drawText1(meme) {
-    gCtx.lineWidth = 2
-    gCtx.strokeStyle = 'black'
-    gCtx.fillStyle = meme.lines[1].color
-    gCtx.font = `${meme.lines[1].size}px impact`
-    gCtx.textAlign = 'center'
-    gCtx.textBaseline = 'top'
-
-    gCtx.fillText(meme.lines[1].txt, gElCanvas.width / 2, gElCanvas.height-70)
-    gCtx.strokeText(meme.lines[1].txt, gElCanvas.width / 2, gElCanvas.height-70)
-}
