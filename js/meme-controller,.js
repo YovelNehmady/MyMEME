@@ -18,7 +18,6 @@ function renderMeme() {
     }
 }
 
-
 function drawText(line, lineCounter) {
     gCtx.lineWidth = 2
     gCtx.strokeStyle = 'black'
@@ -64,5 +63,57 @@ function drawText(line, lineCounter) {
     line.pos = { x: x, y: y }
     gCtx.fillText(line.txt, x, y)
     gCtx.strokeText(line.txt, x, y)
+}
+
+function onDeleteLine() {
+    deleteLine()
+    renderMeme()
+}
+
+function onAddLine() {
+    defaultImputs()
+    addLine()
+    gMeme.selectedLineIdx++
+    renderMeme()
+}
+
+function defaultImputs() {
+    document.querySelector('.meme-input').value = ''
+    document.querySelector('.color-picker').value = '#ffffff'
+}
+
+function setInputs(lineIdx) {
+    document.querySelector('.meme-input').value = getTextByLineIdx(lineIdx)
+    document.querySelector('.color-picker').value = getColorByLineIdx(lineIdx)
+}
+
+function onSetLineTxt(text) {
+    setLineTxt(text)
+    renderMeme()
+}
+
+function onChangeLineFocus() {
+    const lineIdx = getLineIdx()
+    setInputs(lineIdx)
+}
+
+function onSetColor(color) {
+    setColor(color)
+    renderMeme()
+}
+
+function onSetAlign(align) {
+    setAlign(align)
+    renderMeme()
+}
+
+function onSetFont(font) {
+    setFont(font)
+    renderMeme()
+}
+
+function onChangeFontSize(diff) {
+    changeFontSize(diff)
+    renderMeme()
 }
 

@@ -1,7 +1,5 @@
 'usr strict'
 
-
-
 let gMeme = {
     selectedImgId: 0,
     selectedLineIdx: 0,
@@ -12,21 +10,16 @@ let gMeme = {
             align: 'center',
             color: '#ffffff',
             font: 'impact',
-            pos :''
+            pos: ''
         }
     ]
 }
 
-function onDeleteLine() {
+function deleteLine() {
     gMeme.lines.splice(gMeme.selectedLineIdx, 1)
-    renderMeme()
 }
 
-function onAddLine() {
-
-    document.querySelector('.meme-input').value = ''
-    document.querySelector('.color-picker').value = '#ffffff'
-
+function addLine() {
     gMeme.lines.push({
         txt: '',
         size: 60,
@@ -34,24 +27,10 @@ function onAddLine() {
         color: '#ffffff',
         font: 'impact',
     })
-
-    gMeme.selectedLineIdx++
-    renderMeme()
 }
 
 function setLineTxt(text) {
     gMeme.lines[gMeme.selectedLineIdx].txt = text
-    renderMeme()
-}
-
-function onChangeLineFocus() {
-    const lineIdx = getLineIdx()
-    renderInputs(lineIdx)
-}
-
-function renderInputs(lineIdx) {
-    document.querySelector('.meme-input').value = gMeme.lines[lineIdx].txt
-    document.querySelector('.color-picker').value = gMeme.lines[lineIdx].color
 }
 
 function getLineIdx() {
@@ -63,25 +42,28 @@ function getLineIdx() {
     return gMeme.selectedLineIdx
 }
 
-function onSetColor(color) {
+function getTextByLineIdx(lineIdx){
+    return gMeme.lines[lineIdx].txt
+}
+
+function getColorByLineIdx(lineIdx){
+    return gMeme.lines[lineIdx].color 
+}
+
+function  setColor(color){
     gMeme.lines[gMeme.selectedLineIdx].color = color
-    renderMeme()
 }
 
-function onSetAlign(align) {
+function setAlign(align){
     gMeme.lines[gMeme.selectedLineIdx].align = align
-    renderMeme()
 }
 
-function onSetFont(font) {
+function setFont(font) {
     gMeme.lines[gMeme.selectedLineIdx].font = font
-    gFont = font
-    renderMeme()
 }
 
-function onChangeFontSize(diff) {
+function changeFontSize(diff) {
     gMeme.lines[gMeme.selectedLineIdx].size += diff
-    renderMeme()
 }
 
 function setImg(id) {
