@@ -2,6 +2,7 @@
 
 function onInit() {
     renderImgs()
+    addListeners()
 }
 
 function renderImgs() {
@@ -26,5 +27,6 @@ function onCloseEditorScreen() {
     document.querySelector('.main-screen').classList.remove('close')
     document.querySelector('.editor-screen').classList.remove('grid')
     document.querySelector('.editor-screen').classList.add('close')
-
+    cleanGmeme()
+    defaultImputs()
 }

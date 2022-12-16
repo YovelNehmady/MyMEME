@@ -44,9 +44,15 @@ justify-content: space-around;
 .editor-tools button {
     background-color: var(--clr1);
     font-family: montserrat-bold;
-    width: 100px;
     border-radius: 10px;
-    cursor: pointer; 
+    cursor: pointer;
+    height: fit-content;
+    width: fit-content; 
+    padding: 0;
+}
+
+.editor-tools .download-btn {
+  padding: 14px; 
 }
 
 .editor-tools button:hover {

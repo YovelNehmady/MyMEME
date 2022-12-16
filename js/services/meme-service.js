@@ -10,13 +10,64 @@ let gMeme = {
             align: 'center',
             color: '#ffffff',
             font: 'impact',
-            pos: ''
+            pos: '',
+            isDrag: false
         }
     ]
 }
 
+function setLineFocus() {
+    gMeme.selectedLineIdx = gMeme.lines.findIndex(line => line.isDrag)
+    setInputs(gMeme.selectedLineIdx)
+    
+}
+
+function cleanGmeme() {
+    gMeme = {
+        selectedImgId: 0,
+        selectedLineIdx: 0,
+        lines: [
+            {
+                txt: '',
+                size: 60,
+                align: 'center',
+                color: '#ffffff',
+                font: 'impact',
+                pos: '',
+                isDrag: false
+            }
+        ]
+    }
+}
+
+function setLineDrag(isDrag, line) {
+    if (!line) return
+    line.isDrag = isDrag
+}
+
+function lineClicked(clickedPos) {
+    return gMeme.lines.find(line => {
+        const { pos } = line
+        return (
+            clickedPos.y >= pos.y - line.size && clickedPos.y <= pos.y
+        )
+    })
+}
+
+function moveLine(dx, dy, line) {
+    line.pos.x += dx
+    line.pos.y += dy
+}
+
+function getDragedLine() {
+    return gMeme.lines.find(line => line.isDrag)
+}
+
 function deleteLine() {
+    if (gMeme.lines.length === gMeme.selectedLineIdx) return
     gMeme.lines.splice(gMeme.selectedLineIdx, 1)
+    gMeme.selectedLineIdx = 0
+    setInputs(0)
 }
 
 function addLine() {
@@ -26,11 +77,14 @@ function addLine() {
         align: 'center',
         color: '#ffffff',
         font: 'impact',
+        isDrag: false
+
     })
 }
 
 function setLineTxt(text) {
     gMeme.lines[gMeme.selectedLineIdx].txt = text
+
 }
 
 function getLineIdx() {
@@ -42,20 +96,41 @@ function getLineIdx() {
     return gMeme.selectedLineIdx
 }
 
-function getTextByLineIdx(lineIdx){
+function getTextByLineIdx(lineIdx) {
+    if (!gMeme.lines[lineIdx]) return ''
     return gMeme.lines[lineIdx].txt
 }
 
-function getColorByLineIdx(lineIdx){
-    return gMeme.lines[lineIdx].color 
+function getColorByLineIdx(lineIdx) {
+    if (!gMeme.lines[lineIdx]) return '#ffffff'
+    return gMeme.lines[lineIdx].color
+}
+function getFontByLineIdx(lineIdx) {
+    if (!gMeme.lines[lineIdx]) return 'impact'
+    return gMeme.lines[lineIdx].font
 }
 
-function  setColor(color){
+function setColor(color) {
     gMeme.lines[gMeme.selectedLineIdx].color = color
 }
 
-function setAlign(align){
+function setAlign(align) {
     gMeme.lines[gMeme.selectedLineIdx].align = align
+    let x
+    switch (align) {
+        case 'left':
+            x = 5
+            break
+
+        case 'right':
+            x = gElCanvas.width
+            break
+
+        case 'center':
+            x = gElCanvas.width / 2
+            break
+    }
+    gMeme.lines[gMeme.selectedLineIdx].pos.x = x
 }
 
 function setFont(font) {
