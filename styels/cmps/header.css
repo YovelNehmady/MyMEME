@@ -7,13 +7,20 @@
     color: var(--clr2);
     font-family: SourceCodePro;
     font-size: 2rem;
-    align-self: center
+    align-self: center;
+    padding-block: 15px;
 }
 
 .main-header .logo span {
     color: var(--clr3);
     position: relative;
-    top: -6px;
+    top: -7px;
+}
+
+.main-nav a:hover {
+    color: var(--clr4);
+    box-shadow: inset 0 -6px 0 var(--clr4);
+    transition: color .4s, box-shadow .4s;
 }
 
 .main-nav a {
@@ -22,17 +29,72 @@
     margin: 0;
 }
 
-.main-nav li:last-child {
-    box-shadow: -1px 0 0 0 var(--clr2), inset -1px 0 0 0 var(--clr2)
+.main-screen-mobile {
+    position: fixed;
+    inset: 0;
+    background-color: #809194e6;
+    opacity: 0;
+    cursor: pointer;
+    pointer-events: none;
 }
 
-.main-nav li {
-    box-shadow: -1px 0 0 0 var(--clr2);
+.menu-toggle-btn {
+    margin-inline-end: 35px;
+    cursor: pointer;
+    color: var(--clr2);
+    background-color: var(--clr-2);
+    border: none;
+    font-size: 1.5em;
+    display: none;
 }
 
+@media (max-width : 630px) {
+    body.menu-open .main-header ul {
+        transform: translateX(0);
+    }
+    
+    body.menu-open .main-screen-mobile {
+        pointer-events: auto;
+        opacity: 1;
+        transition: opacity .4s
 
-.main-nav a:hover {
-    color: var(--clr4);
-    box-shadow: inset 0 -6px 0 var(--clr4);
-    transition: color .4s, box-shadow .4s;
+    }
+
+    .menu-toggle-btn{
+        display: block;
+    }
+
+    .main-header ul {
+        transform: translateX(100%);
+        position: fixed;
+        top: 0;
+        right: 0;
+        flex-direction: column;
+        height: 100vh;
+        min-width: 30vh;
+        background-color: var(--clr1);
+        z-index: 1;
+    }
+    
+    .main-nav a {
+        /* padding: 40px; */
+        background-color: var(--clr1);
+        min-width: 30vh;
+        display: inline-block;
+        text-align: center;
+        border-bottom: 2px solid var(--clr2);
+    }
+}
+
+@media (min-width : 630px){
+    .main-nav li:last-child {
+        box-shadow: -1px 0 0 0 var(--clr2), inset -1px 0 0 0 var(--clr2)
+    }
+    
+    .main-nav li {
+        box-shadow: -1px 0 0 0 var(--clr2);
+    }
+    .main-header .logo {
+        padding-block: 0;
+    }
 }

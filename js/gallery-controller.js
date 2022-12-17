@@ -4,13 +4,17 @@ function onInit() {
     renderImgs()
     addListeners()
 }
+function toggleMenu() {
+    document.body.classList.toggle('menu-open')
+}
 
 //the function not done yet!
-function onKeyClick(elKey, key) {
-    setKeySearch(key)
-    renderImgs()
-    setKeySize(elKey , key)
-}
+
+// function onKeyClick(elKey, key) {
+//     setKeySearch(key)
+//     renderImgs()
+//     setKeySize(elKey , key)
+// }
 
 function onSearchMeme(key) {
     setKeySearch(key)

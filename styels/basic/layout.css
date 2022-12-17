@@ -1,4 +1,11 @@
 .main-layout>*:not(.full) {
-    max-width: 80vw;
+    max-width: 90vw;
     margin: auto;
+}
+
+@media (min-width : 900px) {
+    .main-layout>*:not(.full) {
+        max-width: 85vw;
+        margin: auto;
+    }
 }

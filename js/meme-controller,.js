@@ -95,6 +95,11 @@ function renderMeme() {
     const elImg = new Image()
     elImg.src = img.url
     elImg.onload = () => {
+
+        // gElCanvas.width = this.naturalWidth
+        // gElCanvas.height = this.naturalHeight
+        // gCtx.drawImage(this, 0, 0)
+
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
         let lineIdx = 0
         meme.lines.forEach(line => {
@@ -173,6 +178,7 @@ function drawLineFocus(line) {
 }
 
 function onDownloadMeme(elLink) {
+    clearFocus()
     const memeContent = gElCanvas.toDataURL('image/jpeg')
     elLink.href = memeContent
 }
@@ -204,6 +210,7 @@ function setInputs(lineIdx) {
 }
 
 function onShareMeme() {
+    clearFocus()
     const imgDataUrl = gElCanvas.toDataURL('image/jpeg')
     function onSuccess(uploadedImgUrl) {
         const encodedUploadedImgUrl = encodeURIComponent(uploadedImgUrl)

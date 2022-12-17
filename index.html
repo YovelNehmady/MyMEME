@@ -13,7 +13,7 @@
 
 <body onload="onInit()">
 
-
+    <div onclick="toggleMenu()" class="main-screen-mobile full"></div>
 
     <header class="main-header full main-layout">
         <div class="main-container flex space-between">
@@ -23,9 +23,11 @@
                 <ul class="clean-list flex align-center">
                     <li><a onclick="onCloseEditorScreen()" href="#main-content" class="gallery flex">Gallery</a></li>
                     <li><a onclick="onCloseEditorScreen()" href="#personal-details" class="about flex">About</a></li>
-                    <li><a onclick="onCloseEditorScreen()" href="#" class="about flex">Saved</a></li>
+                    <!-- <li><a onclick="onCloseEditorScreen()" href="#" class="about flex">Saved</a></li> -->
                 </ul>
             </nav>
+            <button class="menu-toggle-btn" onclick="toggleMenu()">☰</button>
+
         </div>
     </header>
 
@@ -159,7 +161,6 @@
                 <button><a href="#" class="download-btn flex" onclick="onDownloadMeme(this)"
                         download="MyMEME.jpg">Download</a></button>
                 <img onclick="onShareMeme()" src="/imgs/social/facebook-icon.png" alt="">
-                <!-- <button>Share</button> -->
             </div>
         </section>
     </div>
