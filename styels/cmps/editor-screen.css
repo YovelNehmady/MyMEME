@@ -15,9 +15,9 @@
 @media (min-width : 690px) {
     .editor-container {
         grid-template-areas:
-            "main-canvas    editor-tools";
+        "main-canvas    editor-tools";
         margin-inline: 20px;
+        place-content: center;
     }
-
 
 }

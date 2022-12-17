@@ -2,3 +2,10 @@
     grid-area: main-canvas;
     background-color: var(--clr4);
 }
+
+@media (min-width : 690px) {
+    .main-canvas {
+        max-width: 90%;
+    }
+
+}

@@ -17,10 +17,10 @@
 
 @media (min-width : 630px){
     .main-content{
-        grid-template-columns: repeat(auto-fit, 150px) ;
+        grid-template-columns: repeat(auto-fit, 200px) ;
     }
     .main-content img{
-        height: 150px;
+        height: 200px;
     }
 
 }
