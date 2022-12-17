@@ -1,4 +1,6 @@
 .editor-tools {
+    justify-self: center;
+    width: 95%;
     background-color: var(--clr3);
     grid-area: editor-tools;
     align-self: center;
