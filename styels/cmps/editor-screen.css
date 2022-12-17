@@ -1,15 +1,23 @@
 .editor-screen {
-    width: 100vw;
+    max-width: 100vw;
     margin-block-start: 100px;
 }
 
 .editor-container {
-    height: 50vh;
-    width: 95vw;
     background-color: var(--clr2);
     grid-template-areas:
-    "main-canvas    editor-tools";
-    gap: 55px;
+        "main-canvas"
+        "editor-tools";
+    gap: 20px;
     place-content: center;
 }
 
+@media (min-width : 690px) {
+    .editor-container {
+        grid-template-areas:
+            "main-canvas    editor-tools";
+        margin-inline: 20px;
+    }
+
+
+}

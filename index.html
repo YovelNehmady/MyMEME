@@ -126,48 +126,61 @@
                     placeholder="Enter your MEME &#x270D;" />
 
                 <div class="editor-btns">
+
+                    <img onclick="onChangeLineFocus(event)"
+                        src="imgs/btn/up-and-down-opposite-double-arrows-side-by-side.png" alt="">
                     <img onclick="onAddLine()" src="imgs/btn/add.png" alt="">
+                    <img onclick="onDeleteLine()" src="imgs/btn/trash.png" alt="">
 
                     <img onclick="onSetAlign('left' , event)" src="imgs/btn/align-to-left.png" alt="">
-                    <img onclick="onSetAlign('right' , event)" src="imgs/btn/align-to-right.png" alt="">
                     <img onclick="onSetAlign('center' , event)" src="imgs/btn/center-text-alignment.png" alt="">
+                    <img onclick="onSetAlign('right' , event)" src="imgs/btn/align-to-right.png" alt="">
 
                     <img onclick="onChangeFontSize(-1 , event)" src="imgs/btn/decrease font - icon.png" alt="">
                     <img onclick="onChangeFontSize(+1 , event)" src="imgs/btn/increase font - icon.png" alt="">
 
-                    <img onclick="onChangeLineFocus(event)"
-                        src="imgs/btn/up-and-down-opposite-double-arrows-side-by-side.png" alt="">
+                </div>
 
+                <div class="editor-inputs flex align-center">
                     <input type="color" class="color-picker" style="width: 45px;" value="#ffffff"
                         oninput="onSetColor(this.value,event)">
+
+
+                    <input type="color" class="stroke-picker" style="width: 45px;" value="#000000"
+                        oninput="onSetStroke(this.value,event)">
+
                     <!-- <button><input type="color" class="color-picker" colorpallet="none" value="#ffffff" oninput="onSetColor(this.value)"><img src="imgs/btn/paint-board-and-brush.png" alt=""></button> -->
                     <!-- <img  src="imgs/btn/paint-board-and-brush.png" alt=""> -->
 
                     <!-- <img src="imgs/btn/text stroke.png" alt=""> -->
-                    <input type="color" class="stroke-picker" style="width: 45px;" value="#000000"
-                        oninput="onSetStroke(this.value,event)">
 
 
-                    <img onclick="onDeleteLine()" src="imgs/btn/trash.png" alt="">
+
+                    <select value="impact" onchange="onSetFont(this.value,event)" name="font" class="font-select">
+                        <option value="impact">Impact</option>
+                        <option value="calibri">Calibri</option>
+                        <option value="montserrat-regular">Montserrat</option>
+                    </select>
 
                 </div>
 
-                <select value="impact" onchange="onSetFont(this.value,event)" name="font" class="font-select">
-                    <option value="impact">Impact</option>
-                    <option value="calibri">Calibri</option>
-                    <option value="montserrat-regular">Montserrat</option>
-                </select>
+                <div class="bnt-user flex align-center space-between">
 
-                <button><a href="#" class="download-btn flex" onclick="onDownloadMeme(this)"
-                        download="MyMEME.jpg">Download</a></button>
-                <img onclick="onShareMeme()" src="/imgs/social/facebook-icon.png" alt="">
+                    <button><a href="#" class="download-btn flex" onclick="onDownloadMeme(this)"
+                            download="MyMEME.jpg">Download</a></button>
+
+                    <img onclick="onShareMeme()" src="imgs/social/facebook-icon.png" alt="">
+                </div>
+
             </div>
+
         </section>
+
     </div>
 
     <footer class="main-footer">
         <div class="logo">M<span>y</span>MEME</div>
-        <small>all rights reserved 2022</small>
+        <small>By Yovel Nehmady</small>
     </footer>
 
 

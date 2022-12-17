@@ -4,6 +4,21 @@
     align-self: center;
     height: 100%;
     max-width: 400px;
+    grid-template-areas: 
+    "input"
+    "editor-btns"
+    "editor-inputs"
+    "bnt-user";
+}
+.editor-inputs{
+    grid-area:editor-inputs ;
+    justify-self: center;
+    width: 100%;
+}
+
+.bnt-user{
+    grid-area:bnt-user ;
+
 }
 
 .editor-tools input {
@@ -12,10 +27,12 @@
     height: 45px;
     width: 85%;
     text-align: center;
+    grid-area: input;
 }
 
 .editor-btns {
     text-align: center;
+    grid-area:editor-btns ;
 }
 
 .editor-tools img {
@@ -38,7 +55,7 @@
 }
 
 .editor-tools .btn-container {
-justify-content: space-around;
+    justify-content: space-around;
 }
 
 .editor-tools button {
@@ -47,12 +64,12 @@ justify-content: space-around;
     border-radius: 10px;
     cursor: pointer;
     height: fit-content;
-    width: fit-content; 
+    width: fit-content;
     padding: 0;
 }
 
 .editor-tools .download-btn {
-  padding: 14px; 
+    padding: 14px;
 }
 
 .editor-tools button:hover {
@@ -60,3 +77,7 @@ justify-content: space-around;
 }
 
 
+@media (min-width : 890px){
+
+
+}

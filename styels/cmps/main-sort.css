@@ -1,11 +1,16 @@
 .main-sort{
     background-color: var(--clr3);
+    height: 60px;
+    justify-items: center;
+    align-items: center;
 }
 
-.main-sort span{
-    font-size: 22px;
-    
+.search-keyword{
+    margin: auto;
 }
+
+
+
 
 
 

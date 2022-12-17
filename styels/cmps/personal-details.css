@@ -5,32 +5,39 @@
 .personal-details {
     padding-block: 100px;
     grid-template-areas:
-        "personal-img   name"
-        "personal-img   about"
-        "personal-img   social-links";
-    column-gap: 50px;
+        "personal-img"
+        "name"
+        "about"
+        "social-links";
+    row-gap: 20px;
+    text-align: center;
+    place-items: center;
+
 }
 
 .personal-img {
     border-radius: 50%;
-    height: 250px;
+    height: 200px;
     width: auto;
     grid-area: personal-img;
-    justify-self: end;
+    justify-self: center;
 }
 
 .name {
     grid-area: name;
-    font-size: 1.3rem;
+    font-size: 1rem;
+    margin-bottom: 10px;
 }
 
 .about {
     grid-area: about;
-    max-width: 350px;
+    max-width: 250px;
+    font-size: .8rem;
 }
 
 .social-links {
     grid-area: social-links;
+    justify-self: center;
 }
 
 svg {
@@ -55,4 +62,55 @@ svg {
 
 .github:hover svg {
     fill: #fff;
+}
+
+@media (min-width : 630px) {
+
+    .personal-details {
+        padding-block: 100px;
+        grid-template-areas:
+            "personal-img   name"
+            "personal-img   about"
+            "social-links   social-links";
+        column-gap: 30px;
+        row-gap: 0;
+        justify-items: start;
+        text-align: start;
+
+    }
+
+    .personal-img {
+        justify-self: end;
+    }
+
+}
+
+@media (min-width : 790px) {
+    .personal-details {
+        padding-block: 100px;
+        grid-template-areas:
+            "personal-img   name"
+            "personal-img   about"
+            "personal-img   social-links";
+        column-gap: 50px;
+    }
+
+    .social-links {
+        justify-self: start;
+    }
+
+    .personal-img {
+        height: 250px;
+        align-self: start;
+    }
+
+    .name {
+        font-size: 1.3rem;
+        margin-bottom: 28.6px;
+    }
+
+    .about {
+        font-size: 1rem;
+    }
+
 }

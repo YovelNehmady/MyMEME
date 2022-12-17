@@ -1,20 +1,31 @@
 .main-content{
     background-color: var(--clr3);
-    grid-template-columns: repeat(auto-fit, 250px) ;
+    grid-template-columns: repeat(auto-fit, 100px) ;
     gap: 20px;
     justify-content: center;
-    
 }
 
 .main-content img{
     cursor: pointer;
-    height: 250px;
+    height: 100px;
     width: auto;
 }
 
 .main-content img:hover{
  opacity: .5;
 }
+
+@media (min-width : 630px){
+    .main-content{
+        grid-template-columns: repeat(auto-fit, 150px) ;
+    }
+    .main-content img{
+        height: 150px;
+    }
+
+}
+
+
 
 
 

@@ -8,6 +8,11 @@ function toggleMenu() {
     document.body.classList.toggle('menu-open')
 }
 
+function closeMenu(){
+    document.body.classList.remove('menu-open')
+
+}
+
 //the function not done yet!
 
 // function onKeyClick(elKey, key) {
@@ -45,4 +50,5 @@ function onCloseEditorScreen() {
     document.querySelector('.editor-screen').classList.add('close')
     cleanGmeme()
     defaultImputs()
+    closeMenu()
 }
