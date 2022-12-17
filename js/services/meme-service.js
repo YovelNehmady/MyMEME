@@ -5,21 +5,33 @@ let gMeme = {
     selectedLineIdx: 0,
     lines: [
         {
+            id: makeId(),
             txt: '',
             size: 60,
             align: 'center',
             color: '#ffffff',
+            stroke: '#000000',
             font: 'impact',
             pos: '',
-            isDrag: false
+            isDrag: false,
+            isFocus: false
         }
     ]
+}
+
+function isLineFocus(idx) {
+    clearFocus()
+    gMeme.lines[idx].isFocus = true
+}
+
+function clearFocus() {
+    gMeme.lines.forEach(line => line.isFocus = false)
+    renderMeme()
 }
 
 function setLineFocus() {
     gMeme.selectedLineIdx = gMeme.lines.findIndex(line => line.isDrag)
     setInputs(gMeme.selectedLineIdx)
-    
 }
 
 function cleanGmeme() {
@@ -28,13 +40,16 @@ function cleanGmeme() {
         selectedLineIdx: 0,
         lines: [
             {
+                id: makeId(),
                 txt: '',
                 size: 60,
                 align: 'center',
                 color: '#ffffff',
+                stroke: '#000000',
                 font: 'impact',
                 pos: '',
-                isDrag: false
+                isDrag: false,
+                isFocus: false
             }
         ]
     }
@@ -46,12 +61,15 @@ function setLineDrag(isDrag, line) {
 }
 
 function lineClicked(clickedPos) {
-    return gMeme.lines.find(line => {
+    const selectedLine = gMeme.lines.find(line => {
         const { pos } = line
         return (
             clickedPos.y >= pos.y - line.size && clickedPos.y <= pos.y
         )
     })
+    if (selectedLine) isLineFocus(gMeme.lines.findIndex(line => line.id === selectedLine.id))
+
+    return selectedLine
 }
 
 function moveLine(dx, dy, line) {
@@ -72,19 +90,22 @@ function deleteLine() {
 
 function addLine() {
     gMeme.lines.push({
+
+        id: makeId(),
         txt: '',
         size: 60,
         align: 'center',
         color: '#ffffff',
+        stroke: '#000000',
         font: 'impact',
-        isDrag: false
-
+        isDrag: false,
+        isFocus: false,
     })
 }
 
 function setLineTxt(text) {
     gMeme.lines[gMeme.selectedLineIdx].txt = text
-
+    gMeme.lines[gMeme.selectedLineIdx].isFocus = true
 }
 
 function getLineIdx() {
@@ -105,6 +126,11 @@ function getColorByLineIdx(lineIdx) {
     if (!gMeme.lines[lineIdx]) return '#ffffff'
     return gMeme.lines[lineIdx].color
 }
+function getStrokeByLineIdx(lineIdx) {
+    if (!gMeme.lines[lineIdx]) return '#000000'
+    return gMeme.lines[lineIdx].stroke
+}
+
 function getFontByLineIdx(lineIdx) {
     if (!gMeme.lines[lineIdx]) return 'impact'
     return gMeme.lines[lineIdx].font
@@ -112,6 +138,10 @@ function getFontByLineIdx(lineIdx) {
 
 function setColor(color) {
     gMeme.lines[gMeme.selectedLineIdx].color = color
+}
+
+function setStroke(color) {
+    gMeme.lines[gMeme.selectedLineIdx].stroke = color
 }
 
 function setAlign(align) {

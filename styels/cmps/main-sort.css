@@ -1,13 +1,12 @@
 .main-sort{
     background-color: var(--clr3);
 }
-.text-input {
-    margin: 35px;
-    margin-left:150px;
-    height: 35px;
-    border: none;
-    border-bottom: 2px black solid;
+
+.main-sort span{
+    font-size: 22px;
+    
 }
+
 
 
 

@@ -5,6 +5,18 @@ function onInit() {
     addListeners()
 }
 
+//the function not done yet!
+function onKeyClick(elKey, key) {
+    setKeySearch(key)
+    renderImgs()
+    setKeySize(elKey , key)
+}
+
+function onSearchMeme(key) {
+    setKeySearch(key)
+    renderImgs()
+}
+
 function renderImgs() {
     const imges = getImgs()
     let strHTML = ``

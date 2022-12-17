@@ -32,8 +32,44 @@
     <div class="main-screen main-layout">
 
         <section class="main-sort flex space-between align-center">
-            <input type="text" class="text-input" placeholder="Enter search keyword">
-            <div class="keywords-container"> Lorem ipsum dolor sit amet consectetur.</div>
+
+            <input onkeyup="onSearchMeme(this.value)" list="keywords" id="search-keyword" name="search-keyword"
+                class="search-keyword">
+
+            <datalist id="keywords">
+                <option value="funny">
+                <option value="'politician'">
+                <option value="celebrity">
+                <option value="dogs">
+                <option value="baby">
+                <option value="cats">
+                <option value="sleepy">
+                <option value="angry">
+                <option value="odd">
+                <option value="surprised">
+                <option value="movie">
+                <option value="love">
+                <option value="blame">
+                <option value="cheers">
+            </datalist>
+
+            <!-- //the function not done yet! -->
+            <!-- <div class="keywords-container">
+                <span onclick="onKeyClick(this,'funny')" class="funny" >funny</span>
+                <span onclick="onKeyClick(this,'politician')" class="politician">Politician</span>
+                <span onclick="onKeyClick(this,'celebrity')" class="celebrity">Celebrity</span>
+                <span onclick="onKeyClick(this,'dogs')" class="dogs">Dogs</span>
+                <span onclick="onKeyClick(this,'cats')" class="cats">Cats</span>
+                <span onclick="onKeyClick(this,'sleepy')" class="sleepy">Sleepy</span>
+                <span onclick="onKeyClick(this,'angry')" class="angry">Angry</span>
+                <span onclick="onKeyClick(this,'odd')" class="odd">Odd</span>
+                <span onclick="onKeyClick(this,'surprised')" class="surprised">Surprised</span>
+                <span onclick="onKeyClick(this,'movie')" class="movie">Movie</span>
+                <span onclick="onKeyClick(this,'love')" class="love">Love</span>
+                <span onclick="onKeyClick(this,'blame')" class="blame">Blame</span>
+                <span onclick="onKeyClick(this,'cheers')" class="cheers">Cheers</span>
+            </div> -->
+
         </section>
 
         <section class="main-content grid" id="main-content"></section>
@@ -57,7 +93,11 @@
                         </a></li>
 
                     <li><a href="https://github.com/YovelNehmady" target="_blank" class="github">
-                        <svg fill="#000000" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 32 32" width="64px" height="64px" fill-rule="evenodd"><path fill-rule="evenodd" d="M 16 4 C 9.371094 4 4 9.371094 4 16 C 4 21.300781 7.4375 25.800781 12.207031 27.386719 C 12.808594 27.496094 13.027344 27.128906 13.027344 26.808594 C 13.027344 26.523438 13.015625 25.769531 13.011719 24.769531 C 9.671875 25.492188 8.96875 23.160156 8.96875 23.160156 C 8.421875 21.773438 7.636719 21.402344 7.636719 21.402344 C 6.546875 20.660156 7.71875 20.675781 7.71875 20.675781 C 8.921875 20.761719 9.554688 21.910156 9.554688 21.910156 C 10.625 23.746094 12.363281 23.214844 13.046875 22.910156 C 13.15625 22.132813 13.46875 21.605469 13.808594 21.304688 C 11.144531 21.003906 8.34375 19.972656 8.34375 15.375 C 8.34375 14.0625 8.8125 12.992188 9.578125 12.152344 C 9.457031 11.851563 9.042969 10.628906 9.695313 8.976563 C 9.695313 8.976563 10.703125 8.65625 12.996094 10.207031 C 13.953125 9.941406 14.980469 9.808594 16 9.804688 C 17.019531 9.808594 18.046875 9.941406 19.003906 10.207031 C 21.296875 8.65625 22.300781 8.976563 22.300781 8.976563 C 22.957031 10.628906 22.546875 11.851563 22.421875 12.152344 C 23.191406 12.992188 23.652344 14.0625 23.652344 15.375 C 23.652344 19.984375 20.847656 20.996094 18.175781 21.296875 C 18.605469 21.664063 18.988281 22.398438 18.988281 23.515625 C 18.988281 25.121094 18.976563 26.414063 18.976563 26.808594 C 18.976563 27.128906 19.191406 27.503906 19.800781 27.386719 C 24.566406 25.796875 28 21.300781 28 16 C 28 9.371094 22.628906 4 16 4 Z"/></svg>
+                            <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="64px"
+                                height="64px" fill-rule="evenodd">
+                                <path fill-rule="evenodd"
+                                    d="M 16 4 C 9.371094 4 4 9.371094 4 16 C 4 21.300781 7.4375 25.800781 12.207031 27.386719 C 12.808594 27.496094 13.027344 27.128906 13.027344 26.808594 C 13.027344 26.523438 13.015625 25.769531 13.011719 24.769531 C 9.671875 25.492188 8.96875 23.160156 8.96875 23.160156 C 8.421875 21.773438 7.636719 21.402344 7.636719 21.402344 C 6.546875 20.660156 7.71875 20.675781 7.71875 20.675781 C 8.921875 20.761719 9.554688 21.910156 9.554688 21.910156 C 10.625 23.746094 12.363281 23.214844 13.046875 22.910156 C 13.15625 22.132813 13.46875 21.605469 13.808594 21.304688 C 11.144531 21.003906 8.34375 19.972656 8.34375 15.375 C 8.34375 14.0625 8.8125 12.992188 9.578125 12.152344 C 9.457031 11.851563 9.042969 10.628906 9.695313 8.976563 C 9.695313 8.976563 10.703125 8.65625 12.996094 10.207031 C 13.953125 9.941406 14.980469 9.808594 16 9.804688 C 17.019531 9.808594 18.046875 9.941406 19.003906 10.207031 C 21.296875 8.65625 22.300781 8.976563 22.300781 8.976563 C 22.957031 10.628906 22.546875 11.851563 22.421875 12.152344 C 23.191406 12.992188 23.652344 14.0625 23.652344 15.375 C 23.652344 19.984375 20.847656 20.996094 18.175781 21.296875 C 18.605469 21.664063 18.988281 22.398438 18.988281 23.515625 C 18.988281 25.121094 18.976563 26.414063 18.976563 26.808594 C 18.976563 27.128906 19.191406 27.503906 19.800781 27.386719 C 24.566406 25.796875 28 21.300781 28 16 C 28 9.371094 22.628906 4 16 4 Z" />
+                            </svg>
 
                     <li><a href="https://www.facebook.com/profile.php?id=100017879824570" target="_blank"
                             class="facebook">
@@ -74,46 +114,52 @@
 
     </div>
 
-    <div class="close editor-screen">
+    <div class="close editor-screen" onclick="clearFocus()">
 
         <section class="editor-container grid">
             <canvas class="main-canvas" height="400px" width="400px"></canvas>
             <div class="editor-tools grid">
 
-                <input class="meme-input" onkeyup="onSetLineTxt(this.value)" type="text" placeholder="Enter your MEME &#x270D;"/>
+                <input class="meme-input" onkeyup="onSetLineTxt(this.value)" type="text"
+                    placeholder="Enter your MEME &#x270D;" />
 
                 <div class="editor-btns">
                     <img onclick="onAddLine()" src="imgs/btn/add.png" alt="">
 
-                    <img onclick="onSetAlign('left')" src="imgs/btn/align-to-left.png" alt="">
-                    <img onclick="onSetAlign('right')" src="imgs/btn/align-to-right.png" alt="">
-                    <img onclick="onSetAlign('center')" src="imgs/btn/center-text-alignment.png" alt="">
+                    <img onclick="onSetAlign('left' , event)" src="imgs/btn/align-to-left.png" alt="">
+                    <img onclick="onSetAlign('right' , event)" src="imgs/btn/align-to-right.png" alt="">
+                    <img onclick="onSetAlign('center' , event)" src="imgs/btn/center-text-alignment.png" alt="">
 
-                    <img onclick="onChangeFontSize(-1)" src="imgs/btn/decrease font - icon.png" alt="">
-                    <img onclick="onChangeFontSize(+1)" src="imgs/btn/increase font - icon.png" alt="">
+                    <img onclick="onChangeFontSize(-1 , event)" src="imgs/btn/decrease font - icon.png" alt="">
+                    <img onclick="onChangeFontSize(+1 , event)" src="imgs/btn/increase font - icon.png" alt="">
 
-                    <img onclick="onChangeLineFocus()" src="imgs/btn/up-and-down-opposite-double-arrows-side-by-side.png" alt="">
+                    <img onclick="onChangeLineFocus(event)"
+                        src="imgs/btn/up-and-down-opposite-double-arrows-side-by-side.png" alt="">
 
-                    <input type="color" class="color-picker" style="width: 45px;" value="#ffffff" oninput="onSetColor(this.value)">
+                    <input type="color" class="color-picker" style="width: 45px;" value="#ffffff"
+                        oninput="onSetColor(this.value,event)">
                     <!-- <button><input type="color" class="color-picker" colorpallet="none" value="#ffffff" oninput="onSetColor(this.value)"><img src="imgs/btn/paint-board-and-brush.png" alt=""></button> -->
                     <!-- <img  src="imgs/btn/paint-board-and-brush.png" alt=""> -->
-                    
+
                     <!-- <img src="imgs/btn/text stroke.png" alt=""> -->
+                    <input type="color" class="stroke-picker" style="width: 45px;" value="#000000"
+                        oninput="onSetStroke(this.value,event)">
 
 
                     <img onclick="onDeleteLine()" src="imgs/btn/trash.png" alt="">
 
                 </div>
 
-                <select  value="impact" onchange="onSetFont(this.value)" name="font" class="font-select">
+                <select value="impact" onchange="onSetFont(this.value,event)" name="font" class="font-select">
                     <option value="impact">Impact</option>
                     <option value="calibri">Calibri</option>
                     <option value="montserrat-regular">Montserrat</option>
                 </select>
 
-                    <!-- <a href="#" class="download-btn" onclick="onDownloadMeme(this)" download="MyMEME.jpg"><button>Download</button></a> -->
-                    <button><a href="#" class="download-btn flex" onclick="onDownloadMeme(this)" download="MyMEME.jpg">Download</a></button>
-                    <button>Share</button>
+                <button><a href="#" class="download-btn flex" onclick="onDownloadMeme(this)"
+                        download="MyMEME.jpg">Download</a></button>
+                <img onclick="onShareMeme()" src="/imgs/social/facebook-icon.png" alt="">
+                <!-- <button>Share</button> -->
             </div>
         </section>
     </div>
@@ -125,10 +171,12 @@
 
 
 
-<script src="js/services/gallery-service.js"></script>
-<script src="js/services/meme-service.js"></script>
-<script src="js/gallery-controller.js"></script>
-<script src="js/meme-controller,.js"></script>
+    <script src="js/services/util-service.js"></script>
+    <script src="js/services/upluad-service.js"></script>
+    <script src="js/services/gallery-service.js"></script>
+    <script src="js/services/meme-service.js"></script>
+    <script src="js/gallery-controller.js"></script>
+    <script src="js/meme-controller,.js"></script>
 </body>
 
 </html>

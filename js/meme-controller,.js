@@ -22,6 +22,7 @@ function addMouseListeners() {
     gElCanvas.addEventListener('mousemove', onMove)
     gElCanvas.addEventListener('mousedown', onDown)
     gElCanvas.addEventListener('mouseup', onUp)
+    gElCanvas.addEventListener('click', onClick)
 }
 
 function addTouchListeners() {
@@ -30,10 +31,22 @@ function addTouchListeners() {
     gElCanvas.addEventListener('touchend', onUp)
 }
 
+function onClick(ev) {
+    ev.stopPropagation()
+    const pos = getEvPos(ev)
+    lineClicked(pos)
+    renderMeme()
+}
+
 function onDown(ev) {
+    ev.stopPropagation()
     const pos = getEvPos(ev)
     const line = lineClicked(pos)
-    if (!line || !line.txt) return
+    if (!line || !line.txt) {
+        clearFocus()
+        defaultImputs()
+        return
+    }
     setLineDrag(true, line)
     setLineFocus()
     gStartPos = pos
@@ -41,6 +54,7 @@ function onDown(ev) {
 }
 
 function onMove(ev) {
+    ev.stopPropagation()
     const meme = getMeme()
     const dragLine = meme.lines.find(line => line.isDrag)
     if (!dragLine) return
@@ -52,7 +66,8 @@ function onMove(ev) {
     renderMeme()
 }
 
-function onUp() {
+function onUp(ev) {
+    ev.stopPropagation()
     const line = getDragedLine()
     setLineDrag(false, line)
     document.body.style.cursor = 'grab'
@@ -83,7 +98,10 @@ function renderMeme() {
         gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
         let lineIdx = 0
         meme.lines.forEach(line => {
+            gCtx.beginPath()
             drawText(line, lineIdx)
+            if (line.isFocus) drawLineFocus(line)
+            gCtx.closePath()
             lineIdx++
         })
     }
@@ -91,7 +109,7 @@ function renderMeme() {
 
 function drawText(line, lineIdx) {
     gCtx.lineWidth = 2
-    gCtx.strokeStyle = 'black'
+    gCtx.strokeStyle = line.stroke
     gCtx.fillStyle = line.color
     gCtx.font = `${line.size}px ${line.font}`
     gCtx.textAlign = line.align
@@ -106,7 +124,7 @@ function drawText(line, lineIdx) {
                 break
 
             case 1:
-                y = gElCanvas.height - 5
+                y = gElCanvas.height - 20
                 break
 
             default:
@@ -136,16 +154,17 @@ function drawText(line, lineIdx) {
     gCtx.strokeText(line.txt, x, y)
 }
 
-function drawLineFocus(line){
+function drawLineFocus(line) {
+    if (!line.txt) return
     const y = line.pos.y
     const fontSize = line.size
     gCtx.lineWidth = 2
-    gCtx.moveTo(0, y - fontSize )
-    gCtx.lineTo(gElCanvas.width,  y - fontSize)
+    gCtx.moveTo(0, y - fontSize)
+    gCtx.lineTo(gElCanvas.width, y - fontSize)
 
     gCtx.strokeStyle = 'black'
     gCtx.stroke()
-    
+
     gCtx.lineWidth = 2
     gCtx.moveTo(0, y + 10)
     gCtx.lineTo(gElCanvas.width, y + 10)
@@ -173,42 +192,67 @@ function onAddLine() {
 function defaultImputs() {
     document.querySelector('.meme-input').value = ''
     document.querySelector('.color-picker').value = '#ffffff'
+    document.querySelector('.stroke-picker').value = '#000000'
     document.querySelector('.font-select').value = 'impact'
-    
 }
 
 function setInputs(lineIdx) {
     document.querySelector('.meme-input').value = getTextByLineIdx(lineIdx)
     document.querySelector('.color-picker').value = getColorByLineIdx(lineIdx)
+    document.querySelector('.stroke-picker').value = getStrokeByLineIdx(lineIdx)
     document.querySelector('.font-select').value = getFontByLineIdx(lineIdx)
+}
+
+function onShareMeme() {
+    const imgDataUrl = gElCanvas.toDataURL('image/jpeg')
+    function onSuccess(uploadedImgUrl) {
+        const encodedUploadedImgUrl = encodeURIComponent(uploadedImgUrl)
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodedUploadedImgUrl}&t=${encodedUploadedImgUrl}`)
+    }
+
+    doUploadImg(imgDataUrl, onSuccess)
 }
 
 function onSetLineTxt(text) {
     setLineTxt(text)
     renderMeme()
+
 }
 
-function onChangeLineFocus() {
+function onChangeLineFocus(ev) {
+    ev.stopPropagation()
     const lineIdx = getLineIdx()
+    isLineFocus(lineIdx)
+    renderMeme()
     setInputs(lineIdx)
 }
 
-function onSetColor(color) {
+function onSetColor(color, ev) {
+    ev.stopPropagation()
     setColor(color)
     renderMeme()
 }
 
-function onSetAlign(align) {
+function onSetStroke(color, ev) {
+    ev.stopPropagation()
+    setStroke(color)
+    renderMeme()
+}
+
+function onSetAlign(align, ev) {
+    ev.stopPropagation()
     setAlign(align)
     renderMeme()
 }
 
-function onSetFont(font) {
+function onSetFont(font, ev) {
+    ev.stopPropagation()
     setFont(font)
     renderMeme()
 }
 
-function onChangeFontSize(diff) {
+function onChangeFontSize(diff, ev) {
+    ev.stopPropagation()
     changeFontSize(diff)
     renderMeme()
 }
