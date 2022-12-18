@@ -36,8 +36,7 @@
         <section class="main-sort flex space-between align-center">
 
             <input onkeyup="onSearchMeme(this.value)" list="keywords" id="search-keyword" name="search-keyword"
-                class="search-keyword">
-
+                class="search-keyword" placeholder="Enter kewword...">
             <datalist id="keywords">
                 <option value="funny">
                 <option value="'politician'">
@@ -55,12 +54,13 @@
                 <option value="cheers">
             </datalist>
 
-            <!-- //the function not done yet! -->
-            <!-- <div class="keywords-container">
-                <span onclick="onKeyClick(this,'funny')" class="funny" >funny</span>
+            <div class="keywords-container">
+                <span onclick="onKeyClick(this,'')" class="all">All</span>
+                <span onclick="onKeyClick(this,'funny')" class="funny">funny</span>
                 <span onclick="onKeyClick(this,'politician')" class="politician">Politician</span>
                 <span onclick="onKeyClick(this,'celebrity')" class="celebrity">Celebrity</span>
                 <span onclick="onKeyClick(this,'dogs')" class="dogs">Dogs</span>
+                <span onclick="onKeyClick(this,'baby')" class="baby">Baby</span>
                 <span onclick="onKeyClick(this,'cats')" class="cats">Cats</span>
                 <span onclick="onKeyClick(this,'sleepy')" class="sleepy">Sleepy</span>
                 <span onclick="onKeyClick(this,'angry')" class="angry">Angry</span>
@@ -70,7 +70,7 @@
                 <span onclick="onKeyClick(this,'love')" class="love">Love</span>
                 <span onclick="onKeyClick(this,'blame')" class="blame">Blame</span>
                 <span onclick="onKeyClick(this,'cheers')" class="cheers">Cheers</span>
-            </div> -->
+            </div>
 
         </section>
 
@@ -120,6 +120,7 @@
 
         <section class="editor-container grid">
             <canvas class="main-canvas" height="400px" width="400px"></canvas>
+
             <div class="editor-tools grid">
 
                 <input class="meme-input" onkeyup="onSetLineTxt(this.value)" type="text"
@@ -142,19 +143,10 @@
                 </div>
 
                 <div class="editor-inputs flex align-center">
-                    <input type="color" class="color-picker" style="width: 45px;" value="#ffffff"
-                        oninput="onSetColor(this.value,event)">
 
-
-                    <input type="color" class="stroke-picker" style="width: 45px;" value="#000000"
-                        oninput="onSetStroke(this.value,event)">
-
-                    <!-- <button><input type="color" class="color-picker" colorpallet="none" value="#ffffff" oninput="onSetColor(this.value)"><img src="imgs/btn/paint-board-and-brush.png" alt=""></button> -->
-                    <!-- <img  src="imgs/btn/paint-board-and-brush.png" alt=""> -->
-
-                    <!-- <img src="imgs/btn/text stroke.png" alt=""> -->
-
-
+                    <input type="color" class="stroke-picker" value="#000000" oninput="onSetStroke(this.value,event)">
+                    <input type="color" class="color-picker" colorpallet="none" value="#ffffff"
+                        oninput="onSetColor(this.value)">
 
                     <select value="impact" onchange="onSetFont(this.value,event)" name="font" class="font-select">
                         <option value="impact">Impact</option>
@@ -164,12 +156,12 @@
 
                 </div>
 
-                <div class="bnt-user flex align-center space-between">
+                <div class="bnt-user flex align-center">
 
                     <button><a href="#" class="download-btn flex" onclick="onDownloadMeme(this)"
                             download="MyMEME.jpg">Download</a></button>
 
-                    <img onclick="onShareMeme()" src="imgs/social/facebook-icon.png" alt="">
+                    <button class="share-btn flex" onclick="onShareMeme()">Share</button>
                 </div>
 
             </div>

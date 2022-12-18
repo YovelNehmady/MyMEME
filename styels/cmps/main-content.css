@@ -25,6 +25,15 @@
 
 }
 
+@media (min-width : 980px){
+    .main-content{
+        grid-template-columns: repeat(auto-fit, 250px) ;
+    }
+    .main-content img{
+        height: 250px;
+    }
+}
+
 
 
 

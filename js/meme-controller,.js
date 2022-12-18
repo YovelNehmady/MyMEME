@@ -50,7 +50,7 @@ function onDown(ev) {
     setLineDrag(true, line)
     setLineFocus()
     gStartPos = pos
-    document.body.style.cursor = 'grabbing'
+    document.querySelector('.main-canvas').style.cursor = 'grabbing'
 }
 
 function onMove(ev) {
@@ -70,7 +70,7 @@ function onUp(ev) {
     ev.stopPropagation()
     const line = getDragedLine()
     setLineDrag(false, line)
-    document.body.style.cursor = 'grab'
+    document.querySelector('.main-canvas').style.cursor = 'grab'
 }
 
 function getEvPos(ev) {

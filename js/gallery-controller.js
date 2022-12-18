@@ -8,18 +8,17 @@ function toggleMenu() {
     document.body.classList.toggle('menu-open')
 }
 
-function closeMenu(){
+function closeMenu() {
     document.body.classList.remove('menu-open')
 
 }
 
-//the function not done yet!
-
-// function onKeyClick(elKey, key) {
-//     setKeySearch(key)
-//     renderImgs()
-//     setKeySize(elKey , key)
-// }
+function onKeyClick(elKey, key) {
+    setKeySearch(key)
+    renderImgs()
+    const newSize = getKeyNewSize(elKey)
+    elKey.style.fontSize = `${newSize}px`
+}
 
 function onSearchMeme(key) {
     setKeySearch(key)

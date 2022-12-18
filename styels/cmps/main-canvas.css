@@ -4,3 +4,7 @@
     width: 95%;
     justify-self: center;
 }
+
+.main-canvas:hover {
+    cursor: grab;
+}

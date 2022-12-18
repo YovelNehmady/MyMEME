@@ -1,17 +1,36 @@
-.main-sort{
+.main-sort {
     background-color: var(--clr3);
-    height: 60px;
-    justify-items: center;
-    align-items: center;
+    height: auto;
+    padding: 30px;
+    flex-direction: column-reverse;
+    text-align: center;
 }
 
-.search-keyword{
-    margin: auto;
+.main-sort .keywords-container {
+    padding-block-end: 40px;
 }
 
+.main-sort .keywords-container span {
+    cursor: pointer;
+    padding: 10px;
+}
 
+.main-sort .keywords-container .funny {
+    font-size: 2.3rem;
+}
 
+.main-sort .keywords-container .dogs {
+    font-size: 2rem;
+}
 
+.main-sort .keywords-container .movie {
+    font-size: 2rem;
+}
 
+.main-sort .keywords-container .baby {
+    font-size: 2.5rem;
+}
 
-
+.main-sort .search-keyword {
+    width: 35%;
+}

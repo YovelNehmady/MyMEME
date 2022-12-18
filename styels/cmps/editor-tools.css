@@ -6,24 +6,40 @@
     align-self: center;
     height: 100%;
     max-width: 400px;
-    grid-template-areas: 
-    "input"
-    "editor-btns"
-    "editor-inputs"
-    "bnt-user";
+    row-gap: 20px;
+    grid-template-areas:
+        "input"
+        "editor-btns"
+        "editor-inputs"
+        "bnt-user";
 }
-.editor-inputs{
-    grid-area:editor-inputs ;
-    justify-self: center;
+
+.editor-inputs {
+    grid-area: editor-inputs;
+    justify-content: space-around;
     width: 100%;
 }
 
-.bnt-user{
-    grid-area:bnt-user ;
-
+.stroke-picker, .color-picker{
+    height: 50px;
+    width: 50px;
+    border: 0;
+    border-radius: 7px;
+    background-color: var(--clr1);
+    margin-inline: auto;
+    cursor: pointer;
+}
+.stroke-picker:hover, .color-picker:hover{
+    background-color: var(--clr5);
 }
 
-.editor-tools input {
+.bnt-user {
+    grid-area: bnt-user;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.editor-tools .meme-input {
     margin-inline: auto;
     margin-block-start: 10px;
     height: 45px;
@@ -34,7 +50,7 @@
 
 .editor-btns {
     text-align: center;
-    grid-area:editor-btns ;
+    grid-area: editor-btns;
 }
 
 .editor-tools img {
@@ -54,6 +70,7 @@
     margin-inline: auto;
     height: 45px;
     width: 40%;
+    text-align: center;
 }
 
 .editor-tools .btn-container {
@@ -70,10 +87,14 @@
     padding: 0;
 }
 
+.editor-tools button:hover {
+    background-color: var(--clr5);
+}
+
 .editor-tools .download-btn {
     padding: 14px;
 }
 
-.editor-tools button:hover {
-    background-color: var(--clr5);
+.editor-tools .share-btn {
+    padding: 14px;
 }
